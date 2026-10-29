@@ -1,0 +1,13 @@
+* RLC series resonance
+V1 1 0 AC 1
+R1 1 2 10
+L1 2 3 1m
+C1 3 0 100n
+.control
+ac dec 200 1k 100k
+meas ac f0 when vdb(2)=0
+let im = abs(i(v1))
+meas ac imax max im
+meas ac f_at_imax when im=imax
+.endc
+.end

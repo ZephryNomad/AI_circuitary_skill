@@ -1,0 +1,15 @@
+* 5.2.5 fenya shi pianzhi gongshe fangda dianlu - jingtai gongzuodian
+* sheji zhi: Re=270/101k=2.673267k  Rb2=340/9k=37.777778k  Rb1=86k
+VCC 1 0 12
+Rb1 1 2 86k
+Rb2 2 0 37.7777777778k
+Rc  1 3 4.3k
+Re  4 0 2.67326732673k
+Q1  3 2 4 QNPN
+.model QNPN NPN (IS=1.76357677301e-15 BF=100 VAF=100 RB=0 RC=0 RE=0)
+.control
+set numdgt=12
+op
+print all
+.endc
+.end

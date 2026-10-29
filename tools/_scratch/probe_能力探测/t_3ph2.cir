@@ -1,0 +1,14 @@
+* three-phase star, 220V line-neutral, R=10 each
+Va 1 0 AC 220 0
+Vb 2 0 AC 220 -120
+Vc 3 0 AC 220 120
+Ra 1 4 10
+Rb 2 4 10
+Rc 3 4 10
+Rn 4 0 0.001
+.control
+ac lin 1 50 50
+meas ac vn find vm(4) at=50
+meas ac ia find vm(1)/10 at=50
+.endc
+.end

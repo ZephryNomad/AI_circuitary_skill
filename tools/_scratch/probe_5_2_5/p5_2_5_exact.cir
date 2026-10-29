@@ -1,0 +1,22 @@
+* p5_2_5 exact design: Re=270/101k, Rb1=86k, Rb2=340/9k
+* beta=100, VBEQ=0.7V @ ICQ=1mA  =>  IS tuned so that VBE=0.700V at 1mA
+* target: ICQ=1mA, VCEQ=5V, I1=10*IB
+VCC 1 0 12
+Rb1 1 2 86k
+Rb2 2 0 37.7777777777778k
+Rc  1 3 4.3k
+Re  4 0 2.67326732673267k
+Q1  3 2 4 QNPN
+.model QNPN NPN (IS=1.7635767730105438e-15 BF=100 VAF=0 RB=0 RC=0 RE=0)
+.control
+set numdgt=12
+op
+print @q1[ic] @q1[ib] @q1[vbe]
+print @rb1[i] @rb2[i] @rc[i] @re[i]
+print v(1) v(2) v(3) v(4)
+let vce = v(3)-v(4)
+let ibase = @q1[ib]
+let ratio_i1_ib = @rb1[i]/ibase
+print vce ratio_i1_ib
+.endc
+.end

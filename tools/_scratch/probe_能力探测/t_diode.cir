@@ -1,0 +1,12 @@
+* diode half-wave
+V1 1 0 SIN(0 5 50)
+R1 1 2 100
+D1 2 0 DMOD
+.model DMOD D(Is=2.52e-9 N=1.752)
+.control
+tran 0.2m 40m
+meas tran vmax max v(2)
+meas tran vmin min v(2)
+print v(2)[40]
+.endc
+.end

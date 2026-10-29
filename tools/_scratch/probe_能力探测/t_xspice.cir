@@ -1,0 +1,10 @@
+* xspice digital test
+A1 in out inv
+.model inv d_inverter(rise_delay=1n fall_delay=1n)
+V1 in 0 PULSE(0 5 0 1n 1n 5n 10n)
+.tran 0.5n 30n
+.control
+tran 0.5n 30n
+print v(out)[1] v(out)[10]
+.endc
+.end

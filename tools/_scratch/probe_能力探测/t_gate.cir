@@ -1,0 +1,28 @@
+* gate level F = A*B + ~A*C
+A1 1 2 3 and2
+A2 1 4 5 inv
+A3 5 3 6 and2
+A4 3 6 7 or2
+.model and2 d_and(rise_delay=1n fall_delay=1n)
+.model or2 d_or(rise_delay=1n fall_delay=1n)
+.model inv d_inverter(rise_delay=1n fall_delay=1n)
+VA 1 0 DC 0
+VB 2 0 DC 0
+VC 4 0 DC 0
+R7 7 0 1k
+R3 3 0 1k
+.control
+foreach combo 0 1
+  alter VA dc=
+  foreach cb 0 1
+    alter VB dc=
+    foreach cc 0 1
+      alter VC dc=
+      tran 0.5n 10n
+      meas tran f find v(7) at=8n
+      echo "A= B= C= :F"
+    end
+  end
+end
+.endc
+.end

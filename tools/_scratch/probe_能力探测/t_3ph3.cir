@@ -1,0 +1,14 @@
+* three-phase star
+Va 1 0 AC 220 0
+Vb 2 0 AC 220 -120
+Vc 3 0 AC 220 120
+Ra 1 4 10
+Rb 2 4 10
+Rc 3 4 10
+Rn 4 0 0.001
+.control
+ac lin 3 49 51
+print vm(4)[1]
+print vm(1)[1]
+.endc
+.end

@@ -1,0 +1,10 @@
+* opamp configs
+Vin 1 0 DC 2
+R1 1 2 10k
+R2 2 3 100k
+E1 3 0 0 2 1000000
+.control
+op
+print v(3)
+.endc
+.end

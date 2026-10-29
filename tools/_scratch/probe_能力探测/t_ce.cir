@@ -1,0 +1,21 @@
+* common emitter amp
+Vcc 1 0 DC 12
+Rb1 1 2 47k
+Rb2 2 0 10k
+Rc 1 3 2.2k
+Re 4 0 470
+Ce 4 0 47u
+Cin 5 2 10u
+Cout 3 6 10u
+RL 6 0 5.1k
+Q1 3 2 4 QMOD
+.model QMOD NPN(BF=200 IS=1e-14 VA=100)
+Vin 5 0 AC 1
+.control
+op
+print v(2) v(3) v(4) @q1[ic] @q1[vbe]
+ac dec 20 10 10meg
+meas ac gain_mid find vdb(6) at=1k
+meas ac gain_lin find vm(6) at=1k
+.endc
+.end

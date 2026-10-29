@@ -1,0 +1,12 @@
+* DFF pinorder CLK D SET RST Q QB
+A1 CLK D SET RST Q QB d_dff
+.model d_dff d_dff(rise_delay=1n fall_delay=1n)
+VD 1 0 5
+VC 2 0 PULSE(0 5 0 0.1n 0.1n 5n 20n)
+VS 3 0 0
+VR 4 0 0
+.control
+tran 0.5n 60n
+meas tran qmax max v(5)
+.endc
+.end

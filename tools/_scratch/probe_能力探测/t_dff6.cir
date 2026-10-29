@@ -1,0 +1,15 @@
+* dff decisive
+.model d_dff d_dff(rise_delay=1n fall_delay=1n)
+A1 1 2 3 4 5 6 d_dff
+VD 1 0 DC 5
+VC 2 0 PULSE(0 5 1n 0.1n 0.1n 5n 20n)
+VS 3 0 DC 0
+VR 4 0 DC 0
+R5 5 0 1k
+R6 6 0 1k
+.control
+tran 0.2n 40n
+meas tran qmax max v(5)
+meas tran qbmax max v(6)
+.endc
+.end

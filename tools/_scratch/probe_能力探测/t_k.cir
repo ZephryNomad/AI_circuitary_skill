@@ -1,0 +1,11 @@
+* coupled inductors
+V1 1 0 AC 1
+L1 1 2 1m
+L2 3 0 4m
+K1 L1 L2 0.5
+R2 3 0 100
+.control
+ac lin 1 1000 1000
+print v(2) v(3)
+.endc
+.end

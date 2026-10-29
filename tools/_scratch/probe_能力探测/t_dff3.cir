@@ -1,0 +1,13 @@
+* DFF capture
+A1 D CLK Q QB SET RST d_dff
+.model d_dff d_dff(rise_delay=1n fall_delay=1n)
+VD D 0 PWL(0 5 100n 5)
+VC CLK 0 PULSE(0 5 0 0.1n 0.1n 5n 20n)
+VS S 0 0
+VR R 0 0
+.control
+tran 0.5n 60n
+meas tran q_end find v(Q) at=55n
+meas tran q_max max v(Q)
+.endc
+.end

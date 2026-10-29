@@ -1,0 +1,11 @@
+* dc sweep diode
+V1 1 0 0
+R1 1 2 100
+D1 2 0 DMOD
+.model DMOD D(Is=1e-14 N=1)
+.control
+dc V1 0 1 0.1
+meas dc vd_at_07 find v(2) at=0.7
+print v(2)[3]
+.endc
+.end

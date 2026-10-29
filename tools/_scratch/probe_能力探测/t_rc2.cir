@@ -1,0 +1,9 @@
+* rc lowpass sweep
+V1 1 0 AC 1
+R1 1 2 1k
+C1 2 0 159n
+.control
+ac dec 20 10 1meg
+wrdata _probe/ngout/rc.txt vdb(2) vp(2)
+.endc
+.end

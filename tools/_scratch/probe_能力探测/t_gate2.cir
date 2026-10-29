@@ -1,0 +1,11 @@
+* gate level array ports
+A1 [1 2] 3 and2
+.model and2 d_and(rise_delay=1n fall_delay=1n)
+VA 1 0 DC 5
+VB 2 0 DC 5
+R3 3 0 1k
+.control
+tran 0.5n 10n
+meas tran f find v(3) at=8n
+.endc
+.end

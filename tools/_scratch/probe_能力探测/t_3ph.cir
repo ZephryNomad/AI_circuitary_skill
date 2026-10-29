@@ -1,0 +1,14 @@
+* three phase wye
+Va 1 0 AC 220 0
+Vb 2 0 AC 220 -120
+Vc 3 0 AC 220 120
+Ra 1 4 10
+Rb 2 4 10
+Rc 3 4 10
+Rn 4 0 0.001
+.control
+ac lin 1 50 50
+print v(4)
+print i(Ra) i(Rb) i(Rc)
+.endc
+.end

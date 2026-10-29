@@ -1,0 +1,25 @@
+* opamp: inverting + summing + diff, ideal via VCVS gain 1e6
+V1 1 0 DC 1
+V2 2 0 DC 2
+V3 3 0 DC 3
+V4 4 0 DC 0.5
+* inverting on V1: -10k/10k
+R11 1 5 10k
+R12 5 6 10k
+E1 6 0 0 5 1000000
+* summing: -(10k/10k*V2 + 10k/20k*V3)
+R21 2 7 10k
+R22 3 7 20k
+R23 7 8 10k
+E2 8 0 0 7 1000000
+* difference: (V4)*(10k/10k) - ... ? R ??
+R31 4 9 10k
+R32 9 0 10k
+R33 1 10 10k
+R34 10 11 10k
+E3 11 10 9 0 1000000
+.control
+op
+print v(6) v(8) v(11)
+.endc
+.end

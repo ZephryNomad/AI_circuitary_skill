@@ -1,0 +1,12 @@
+* RC lowpass R=1k C=159.155n f3db=1kHz
+V1 1 0 AC 1
+R1 1 2 1k
+C1 2 0 159.155n
+.control
+ac dec 50 1 1meg
+meas ac mag_1k find vm(2) at=1k
+meas ac db_1k find vdb(2) at=1k
+meas ac ph_1k find vp(2) at=1k
+meas ac mag_100 find vm(2) at=100
+.endc
+.end

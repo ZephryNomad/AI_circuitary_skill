@@ -1,0 +1,12 @@
+* mosfet common source
+Vdd 1 0 DC 15
+Rd 1 2 10k
+Rg1 1 3 1meg
+Rg2 3 0 500k
+M1 2 3 0 0 NMOS W=100u L=10u
+.model NMOS NMOS(VTO=1 KP=50u LAMBDA=0.02)
+.control
+op
+print v(3) v(2) @m1[id] @m1[vgs] @m1[vds]
+.endc
+.end

@@ -1,0 +1,11 @@
+* RLC series resonance: f0 = 1/(2pi*sqrt(LC))
+V1 1 0 AC 1
+R1 1 2 10
+L1 2 3 10m
+C1 3 0 10u
+.control
+ac dec 200 100 10k
+meas ac i_max max vm(1)/10
+meas ac f0 when vm(2,3)=0
+.endc
+.end

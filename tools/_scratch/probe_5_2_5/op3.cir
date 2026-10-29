@@ -1,0 +1,14 @@
+* 5.2.5 static operating point, device currents
+VCC 1 0 12
+Rb1 1 2 86k
+Rb2 2 0 37.7777777778k
+Rc  1 3 4.3k
+Re  4 0 2.67326732673k
+Q1  3 2 4 QNPN
+.model QNPN NPN (IS=1.76357677301e-15 BF=100 VAF=100 RB=0 RC=0 RE=0)
+.control
+set numdgt=12
+op
+print @q1[ic] @q1[ib] @q1[ie] @q1[vbe] @q1[vbc]
+.endc
+.end

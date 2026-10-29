@@ -1,0 +1,12 @@
+* RLC series resonance: f0 = 503.29 Hz
+V1 1 0 AC 1
+R1 1 2 10
+L1 2 3 10m
+C1 3 0 10u
+.control
+ac dec 200 100 10k
+meas ac f0 when vm(1)/10=0.0707
+meas ac vc_max max vm(3)
+meas ac vc_f when vm(3)=vc_max
+.endc
+.end

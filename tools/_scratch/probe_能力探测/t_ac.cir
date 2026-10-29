@@ -1,0 +1,10 @@
+* rc lowpass ac
+V1 1 0 AC 1
+R1 1 2 1k
+C1 2 0 159n
+.control
+ac dec 1 100 1meg
+meas ac vm_at_1k find vdb(2) at=1k
+print v(2)[0]
+.endc
+.end

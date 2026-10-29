@@ -1,0 +1,10 @@
+* RC charge: 10V, R=1k, C=1u, tau=1ms
+V1 1 0 PULSE(0 10 0 1n 1n 1 2)
+R1 1 2 1k
+C1 2 0 1u
+.control
+tran 10u 5m
+meas tran v_at_tau find v(2) at=1m
+meas tran v_final find v(2) at=4.9m
+.endc
+.end

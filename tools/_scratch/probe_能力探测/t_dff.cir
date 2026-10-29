@@ -1,0 +1,10 @@
+* DFF test
+A1 D CLK Q QB d_dff
+.model d_dff d_dff(rise_delay=2n fall_delay=2n)
+VD D 0 PWL(0 0 10n 0 10.1n 5 30n 5 30.1n 0 50n 0)
+VC CLK 0 PULSE(0 5 0 0.1n 0.1n 5n 10n)
+.control
+tran 0.2n 50n
+print v(Q)[3] v(Q)[8] v(Q)[13] v(Q)[18] v(Q)[23]
+.endc
+.end

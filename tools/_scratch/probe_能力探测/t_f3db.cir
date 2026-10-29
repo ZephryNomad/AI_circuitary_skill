@@ -1,0 +1,11 @@
+* RC lowpass -3dB
+V1 1 0 AC 1
+R1 1 2 1k
+C1 2 0 159.155n
+.control
+ac dec 500 1 100k
+meas ac vlow find vdb(2) at=1
+meas ac f3db when vdb(2)=-3.0103
+meas ac phase3db find vp(2) at=1000
+.endc
+.end
