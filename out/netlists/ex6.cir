@@ -1,0 +1,16 @@
+* 例6 CCVS 与 CCCS 回归测试
+* 由 circuitary/tools/netlist.py 生成；元件语义与 SPICE3 一致
+* 参考节点(地) = 0
+* 节点清单: 1, 0, 2, 3, 4
+* 戴维宁端口: a=4  b=0（开路电压 u_oc = V(a)-V(b)）
+*
+VUs    1    0    10
+R1     1    2    2
+R2     2    0    3
+R3     2    3    1
+H1     3    0    VUs  3
+R4     3    4    4
+F1     4    0    VUs  2
+R5     4    0    5
+.op
+.end
